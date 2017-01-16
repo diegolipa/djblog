@@ -1,0 +1,67 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/mycss.css' %}">
+			    <ul class="menu">
+		    	<li class="menu__item"><a href="{% url 'usuario:login' %}">Login</a></li>
+		      	<li class="menu__item"><a href="{% url 'usuario:registar' %}">Registrarse</a></li>
+		    </ul>
+</head>
+<body>
+ {% block content %}
+ <center>	<h3>REGISTRO DE USUARIOS</h3></center>
+		    <input type="submit">
+
+	<div class="form-style-5">
+		<form method="post">
+			<label for="job"> Ingresar nombre y apellidos completos:</label>
+			<fieldset>
+			<legend><span class="number">1</span> Información Personal </legend>
+				{{form.first_name.errors}}
+			<input type="text" name="first_name" placeholder="Nombre *" 
+							value="{{request.POST.first_name}}"> 
+
+			    {{form.last_name.errors}}
+			<input type="text" name="last_name" placeholder="Apellidos * "
+							value="{{request.POST.last_name}}"> 
+
+
+			    {{form.email.errors}}
+			<input type="text" name="email" placeholder="Correo * "
+							value="{{request.POST.email}}"> 
+
+			<label for="job">User Name and Password:</label>
+			<fieldset>
+			<legend><span class="number">2</span> Cree su usuario y contraseña</legend>
+			    {{form.username.errors}}
+			<input type="text" name="username" placeholder="Nombre de Usuario * "
+							value="{{request.POST.username}}"> 
+
+
+			    {{form.password1.errors}}
+			<input type="text" name="password1" placeholder="Contraseña * "
+							value="{{request.POST.password1}}"> 
+
+
+			    {{form.password2.errors}}
+			<input type="text" name="password2" placeholder="Confirmar Contraseña * "
+							value="{{request.POST.password2}}"> 
+			</fieldset>
+			</fieldset>
+
+		    <input type="submit">
+
+	</div>
+
+    {% csrf_token %}
+	
+  </form>
+{% endblock %}
+
+</body>
+</html>

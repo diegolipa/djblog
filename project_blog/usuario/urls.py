@@ -1,0 +1,26 @@
+"""project_blog URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/1.10/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.conf.urls import url, include
+    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
+"""
+from django.conf.urls import url
+from blog_apps import views
+from usuario.views import RegistroUsuario
+from usuario.views import LoginUsuario, Forgotpass
+
+
+urlpatterns = [
+	url(r'^login/$', LoginUsuario.as_view(), name='login'),
+    url(r'^registrar', RegistroUsuario.as_view(), name='registar'),
+    url(r'^forgotpass', Forgotpass.as_view(), name='forgotpass'),
+]
