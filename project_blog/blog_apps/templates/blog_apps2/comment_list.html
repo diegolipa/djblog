@@ -1,7 +1,9 @@
+{% extends "base2.html" %}
+{% block listcoment %}
 <h1>Commentary FBV</h1>
 <ul>
     {% for commentary in object_list %}
-    <li>{{ commentary.commentary }} | {{ commentary.post }} | {{ commentary.user }} Commentary)
+    <li>{{ commentary.commentary }} | {{ commentary.post.title }} | {{ commentary.user }}
     <a href="{% url 'blog_apps:commentary_edit' commentary.id %}">edit</a>
     <a href="{% url 'blog_apps:commentary_delete' commentary.id %}">delete</a>
     </li>
@@ -9,3 +11,6 @@
 </ul>
 
 <a href="{% url 'blog_apps:commentay_new' %}">New</a>
+
+
+{% endblock listcoment %}
