@@ -1,16 +1,68 @@
+
 {% extends "base2.html" %}
-{% block listcoment %}
-<h1>Commentary FBV</h1>
+{% block menu %}
+
+      <div class="container-fluid mimin-wrapper">
+          <!-- start: Content -->
+          <div id="content" class="profile-v1">
 <ul>
     {% for commentary in object_list %}
-    <li>{{ commentary.commentary }} | {{ commentary.post.title }} | {{ commentary.user }}
-    <a href="{% url 'blog_apps:commentary_edit' commentary.id %}">edit</a>
-    <a href="{% url 'blog_apps:commentary_delete' commentary.id %}">delete</a>
-    </li>
+    	 <li>
+             <div class="col-md-12 col-sm-12 profile-v1-body">
+                <div class="col-md-7">
+                   <div class="box-v5 panel">
+                  </div>
+                    <div class="panel box-v7">
+                   		<div class="panel-body">
+                    	</div>
+                    <div class="panel box-v7">
+                        <div class="panel-body">
+                          <div class="col-md-12 padding-0 box-v7-header">
+                              <div class="col-md-12 padding-0">
+                                  <div class="col-md-10 padding-0">
+                                  <img src="../static/asset/img/avatar.jpg" class="box-v7-avatar pull-left" />
+                                  <h4>{{ commentary.user }}</h4>
+                                  <p>{{ commentary.created }}</p>
+                                  </div>
+                                  <div class="col-md-2 padding-0">
+                                  </div>
+                              </div>
+                          </div>
+                         <div class="col-md-12 padding-0 box-v7-body">
+                         <h3>{{ commentary.post.title }}</h3>
+                              <p> {{ commentary.commentary }}
+							        <a href="{% url 'blog_apps:commentary_edit' commentary.id %}">edit</a>
+							        <a href="{% url 'blog_apps:commentary_delete' commentary.id %}">delete</a>
+							        <a href="{% url 'blog_apps:commentay_new' %}">New</a>
+<!--                               <img src="../static/asset/img/bg2.jpg" class="img-thumbnail"/>
+ -->
+                              </p>
+                              <div class="col-md-12 top-20">
+                                  <button  class="btn">
+                                    <i class="icon-like icons"></i> 2819
+                                  </button>
+
+                                  <button class="btn">
+                                    <a href="{% url 'blog_apps:commentary_list' %}">Comenta</a>
+                                    <i class="icon-bubble icons"></i> 2
+                                  </button>
+                                  <button class="btn">
+                                    <i class="icon-loop icons"></i> 7071
+                                  </button>
+                              </div>
+                          </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                </div>
+             </div>
+           
+           </div>
+	    </li>
     {% endfor %}
 </ul>
-
-<a href="{% url 'blog_apps:commentay_new' %}">New</a>
-
-
-{% endblock listcoment %}
+	</div>
+</div>
+{% endblock menu %}

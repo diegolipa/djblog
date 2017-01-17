@@ -87,22 +87,34 @@
                 <ul class="nav nav-list">
                     <li><div class="left-bg"></div></li>
                     <li class="time">
-                      <h1 class="animated fadeInLeft">21:00:00</h1>
+                      <h1 class="animated fadeInLeft">21:00</h1>
                       <p class="animated fadeInRight">Sat,October 1st 2029</p>
                     </li>
 
                     <li class="ripple"><a class="tree-toggle nav-header">
                     <span class="fa fa-pencil-square"></span> Blog <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+                      
                       <ul class="nav nav-list tree">
+
                         <li>
                         <a href="{% url 'blog_apps:post_list' %}">Post</a></li>
                         <li>
-                        <a href="{% url 'blog_apps:commentary_list' %}">Commentarios</a>
-                        <a href="{% url 'blog_apps:commentary_list' %}">Comenta</a>
-                        </li>
+                        <a href="{% url 'blog_apps:commentary_list' %}">Commentarios</a></li>
+                     
                       </ul>
+
                     </li>
-                    <li><a href="credits.html">Credits</a></li>
+                    <li><a href="credits.html">Credits</a>
+
+
+                    </li>
+                    <div class="text-center" style="padding:5px;">
+                    <a href="{% url 'usuario:login' %}">Already have an account?</a>
+
+                        <a href="{% url 'blog_apps:post_list' %}">Post</a>  <br>
+
+                        <a href="{% url 'blog_apps:commentary_list' %}">Commentarios</a>
+                   </div>
                   </ul>
                 </div>
             </div>
